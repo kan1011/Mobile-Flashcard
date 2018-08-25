@@ -27,6 +27,15 @@ class DeckListing extends Component{
             }
         })
         if (decks){
+            if (Object.keys(decks).length===0){
+                return (
+                    <View style={styles.mainContainer}>
+                        <View style={styles.pureTextContainer}>
+                            <Text style={styles.mainText}>There is no deck. You can add decks by clicking <Text style={styles.addDeckText}>"Add Deck"</Text> Tab</Text>
+                        </View>
+                    </View>
+                )
+            }
             return (
                 <ScrollView style={styles.mainContainer}>
                     <View style={styles.decks}>
@@ -38,8 +47,10 @@ class DeckListing extends Component{
             )
         }
         return (
-            <View style={styles.container}>
-                <Text style={styles.mainText}>There is no deck. You can add decks by clicking <Text style={styles.addDeckText}>"Add Deck"</Text> Tab</Text>
+            <View style={styles.mainContainer}>
+                <View style={styles.pureTextContainer}>
+                    <Text style={styles.mainText}>Something's Wrong!</Text>
+                </View>
             </View>
         )
     }
@@ -48,6 +59,7 @@ class DeckListing extends Component{
 const styles = StyleSheet.create({
     mainContainer: {
         flexDirection: 'column',
+        flex: 1
     },
     decks: {
         paddingTop: 20,
@@ -61,6 +73,13 @@ const styles = StyleSheet.create({
     addDeckText: {
         fontSize: 30,
         color: '#ea7531'
+    },
+    pureTextContainer: {
+        backgroundColor: '#ffffff',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 10
     }
 })
 

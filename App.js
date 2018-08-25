@@ -7,7 +7,7 @@ import NewDeckPage from './components/NewDeckPage'
 import DeckDetail from './components/DeckDetail'
 import NewCardPage from './components/NewCardPage'
 import QuizPage from './components/QuizPage'
-import { initialDecks, getDecks, checkDecks } from './helpers/accessStorage'
+import { initialDecks, clearDecks, getDecks, checkDecks } from './helpers/accessStorage'
 import { setNotification } from './helpers/notification'
 
 const Tabs = createBottomTabNavigator({
@@ -15,14 +15,14 @@ const Tabs = createBottomTabNavigator({
     screen: DeckListing,
     navigationOptions: {
       tabBarLabel: 'Decks',
-      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-home' size={30} color={tintColor} />,
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-albums-outline' size={30} color={tintColor} />,
     }
   },
   AddDeck:{
     screen: NewDeckPage,
     navigationOptions: {
       tabBarLabel: 'Add Deck',
-      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-contact' size={30} color={tintColor} />,    
+      tabBarIcon: ({ tintColor }) => <Ionicons name='ios-add-circle-outline' size={30} color={tintColor} />,    
     }
   }
 }, {
@@ -82,6 +82,7 @@ const MainNavigator = createStackNavigator({
 export default class App extends React.Component {
   componentDidMount = () => {
     // initialDecks()
+    // clearDecks()
     setNotification()
   }
 

@@ -11,6 +11,10 @@ export const initialDecks = () => {
     AsyncStorage.setItem(DECKSKEY, JSON.stringify(getSampleDecks()))
 }
 
+export const clearDecks = () => {
+    AsyncStorage.setItem(DECKSKEY, JSON.stringify({}))
+}
+
 export const getDecks = () => {
     return new Promise((res, rej) => {
         AsyncStorage.getItem(DECKSKEY).then((decks) => {
@@ -75,7 +79,6 @@ export const getDeck = (deckId) => {
         })
     })
 }
-
 
 export const checkDecks = () => {
     AsyncStorage.getItem(DECKSKEY).then((decks) => console.log('checkDecks', JSON.parse(decks)))
