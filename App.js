@@ -81,16 +81,9 @@ const MainNavigator = createStackNavigator({
 
 export default class App extends React.Component {
   componentDidMount = () => {
-    // initialDecks()
-    // clearDecks()
+    initialDecks()
     setNotification()
   }
-
-  // componentDidUpdate = (prevProps) => {
-  //   if (prevProps.isFocused !== this.props.isFocused) {
-  //       console.log('updated')
-  //   }
-  // }
 
   render() {
     return (

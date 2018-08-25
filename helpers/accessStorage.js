@@ -8,7 +8,11 @@ const generateId = () => {
 const DECKSKEY = 'DECKSKEY'
 
 export const initialDecks = () => {
-    AsyncStorage.setItem(DECKSKEY, JSON.stringify(getSampleDecks()))
+    getDecks().then((decks) => {
+        if (decks===null){
+            AsyncStorage.setItem(DECKSKEY, JSON.stringify(getSampleDecks()))
+        }
+    })
 }
 
 export const clearDecks = () => {
@@ -40,7 +44,7 @@ export const createDeck = (title) => {
                 combinedDeck = {...combinedDeck, [id]: newDeck}
                 AsyncStorage.setItem(DECKSKEY, JSON.stringify(combinedDeck))
             }else{
-                AsyncStorage.setItem(DECKSKEY, JSON.stringify({newDeck}))
+                AsyncStorage.setItem(DECKSKEY, JSON.stringify({[id]: newDeck}))
             }
             res({deckId: id, deck: newDeck})
         }).catch((error) => {

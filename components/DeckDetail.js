@@ -19,7 +19,6 @@ class DeckDetail extends Component{
 
     componentDidMount = () => {
         const { deck, deckId } = this.props.navigation.state.params
-        console.log('loading did mount')
         this.setState({deck, deckId})
     }
 
@@ -31,7 +30,6 @@ class DeckDetail extends Component{
             }
         }).catch(() => {
         })
-        console.log('loading Deck Detail')
         return (
             <View style={styles.container}>
                 <View style={styles.textContainer}>

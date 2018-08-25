@@ -12,7 +12,6 @@ class NewCardPage extends Component{
         const { deckId } = this.props.navigation.state.params
         const { question, answer } = this.state
         createCard({question, answer}, deckId)
-        checkDecks()
         this.setState({question: '', answer: ''})
     }
 

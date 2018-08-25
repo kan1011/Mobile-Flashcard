@@ -21,8 +21,8 @@ class QuizPage extends Component{
                     <TouchableHighlight style={styles.tryAgainBtn} onPress={() => this.props.onTryAgain()}>
                         <Text style={styles.btnText}>Try Again</Text>
                     </TouchableHighlight>
-                    <TouchableHighlight style={styles.backBtn} onPress={() => this.props.navigation.navigate('Home')}>
-                        <Text style={styles.btnText}>Back To Home</Text>
+                    <TouchableHighlight style={styles.backBtn} onPress={() => this.props.navigation.goBack()}>
+                        <Text style={styles.btnText}>Back To Deck</Text>
                     </TouchableHighlight>
                 </View>
             </View>
